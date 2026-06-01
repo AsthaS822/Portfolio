@@ -7,7 +7,7 @@ const capabilities = [
   {
     category: "BUILD",
     title: "Software Engineering & Architecture",
-    description: "Building resilient applications, structuring clean codebases, optimizing database systems, and automating workflows.",
+    description: "Building resilient applications, structuring clean codebases, optimizing database systems and automating workflows.",
     icon: <Terminal className="text-[#f4eff5]" size={28} />,
     skills: ["Python", "Java", "JavaScript", "SQL"],
     bullets: ["Building applications", "Automation", "Problem solving", "Backend fundamentals"]
@@ -15,7 +15,7 @@ const capabilities = [
   {
     category: "ANALYZE",
     title: "Data Analytics & Storytelling",
-    description: "Modeling data relationships, engineering analytical features, and designing executive business intelligence systems.",
+    description: "Modeling data relationships, engineering analytical features and designing executive business intelligence systems.",
     icon: <LineChart className="text-[#f4eff5]" size={28} />,
     skills: ["Power BI", "Pandas", "NumPy", "Data Visualization"],
     bullets: ["Business Intelligence", "Analytics", "Data Storytelling"]
@@ -23,7 +23,7 @@ const capabilities = [
   {
     category: "AI",
     title: "Intelligent Systems & Integrations",
-    description: "Orchestrating large language models, fine-tuning structured system prompts, and designing contextual prompt pipelines.",
+    description: "Orchestrating large language models, fine-tuning structured system prompts and designing contextual prompt pipelines.",
     icon: <Cpu className="text-[#f4eff5]" size={28} />,
     skills: ["LLM APIs", "Prompt Engineering", "RAG Concepts", "AI Integrations", "Generative AI"],
     bullets: ["Context retrieval", "System instructions", "Automation concepts"]
@@ -31,7 +31,7 @@ const capabilities = [
   {
     category: "WEB",
     title: "Modern Web Engineering",
-    description: "Deploying high-performance client architectures, integrating backend engines, and designing scalable REST protocols.",
+    description: "Deploying high-performance client architectures, integrating backend engines and designing scalable REST protocols.",
     icon: <Globe className="text-[#f4eff5]" size={28} />,
     skills: ["React", "Next.js", "Supabase", "PostgreSQL", "REST APIs"],
     bullets: ["Full-Stack interfaces", "State persistence", "Secured pipelines"]

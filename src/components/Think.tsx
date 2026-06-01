@@ -29,7 +29,7 @@ const Think = () => {
               </h2>
             </div>
             <p className="text-[#c2b6cb] text-sm md:text-base max-w-sm font-light leading-relaxed font-serif italic border-l border-white/20 pl-6">
-              "Analytical reviews, branding exercises, and commercial strategy challenges exploring customer dynamics and operations."
+              "Analytical reviews, branding exercises and commercial strategy challenges exploring customer dynamics and operations."
             </p>
           </div>
 
@@ -63,10 +63,10 @@ const Think = () => {
                   {/* Verbatim Description */}
                   <div className="text-[#d7bfdc] text-lg font-light leading-relaxed space-y-6 font-serif">
                     <p>
-                      Reached the Quarter Finals of a national business strategy competition focused on management, technology, operations, and business problem solving.
+                      Reached the Quarter Finals of a national business strategy competition focused on management, technology, operations and business problem solving.
                     </p>
                     <p>
-                      Developed a technology-led expansion strategy for SELCO India, exploring digital transformation, analytics, CRM systems, and scalable operations.
+                      Developed a technology-led expansion strategy for SELCO India, exploring digital transformation, analytics, CRM systems and scalable operations.
                     </p>
                     <p>
                       The experience strengthened my strategic thinking and ability to approach challenges from both technical and business perspectives.
@@ -148,7 +148,7 @@ const Think = () => {
                       Selected Honey Twigs and developed a complete rebranding concept inspired by changing consumer expectations and modern visual storytelling.
                     </p>
                     <p>
-                      Built a moodboard covering: Brand Identity, Audience Positioning, Visual Direction, Communication Style, and Creative Storytelling.
+                      Built a moodboard covering: Brand Identity, Audience Positioning, Visual Direction, Communication Style and Creative Storytelling.
                     </p>
                     <p>
                       The challenge required balancing creativity with business goals while preserving the original brand's essence.
@@ -228,10 +228,10 @@ const Think = () => {
                   {/* Verbatim Description */}
                   <div className="text-[#d7bfdc] text-lg font-light leading-relaxed space-y-6 font-serif">
                     <p>
-                      Explored how consumer behavior, product positioning, pricing, and communication influence business growth.
+                      Explored how consumer behavior, product positioning, pricing and communication influence business growth.
                     </p>
                     <p>
-                      Analyzed customer decision-making patterns and studied how large consumer brands create demand, strengthen market presence, and build customer loyalty.
+                      Analyzed customer decision-making patterns and studied how large consumer brands create demand, strengthen market presence and build customer loyalty.
                     </p>
                   </div>
 

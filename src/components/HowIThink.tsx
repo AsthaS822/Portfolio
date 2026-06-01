@@ -13,11 +13,11 @@ const principles = [
   {
     icon: <LayoutGrid className="text-[#f4eff5]" size={28} />,
     title: "I break complex problems into smaller systems.",
-    desc: "Isolating variables, decomposing features, and modeling robust interactions makes large challenges elegant and manageable."
+    desc: "Isolating variables, decomposing features and modeling robust interactions makes large challenges elegant and manageable."
   },
   {
     icon: <Cpu className="text-[#f4eff5]" size={28} />,
-    title: "I connect AI, data, design, and technology.",
+    title: "I connect AI, data, design and technology.",
     desc: "Intelligent systems are most powerful when data engineering flows seamlessly into beautiful user experiences."
   },
   {

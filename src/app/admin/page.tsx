@@ -7,7 +7,7 @@ export default function AdminPage() {
         </div>
         <h1 className="text-2xl font-bold mb-4">Private Dashboard (System Concept)</h1>
         <p className="text-white/60 mb-8">
-          This is a conceptual placeholder for a future CMS that will allow updating projects, skills, and certifications directly. 
+          This is a conceptual placeholder for a future CMS that will allow updating projects, skills and certifications directly. 
         </p>
         <p className="text-sm text-white/40">Authentication required. Access denied.</p>
       </div>

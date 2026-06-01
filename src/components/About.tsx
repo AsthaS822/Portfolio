@@ -8,19 +8,19 @@ const journeyPhases = [
   {
     phase: "BEGIN",
     title: "Java Fundamentals",
-    description: "Built strong foundations in logical problem solving, data structures, and core backend concepts.",
+    description: "Built strong foundations in logical problem solving, data structures and core backend concepts.",
     icon: <Coffee className="text-orchid" size={24} />
   },
   {
     phase: "02",
     title: "Web Development",
-    description: "Explored frontend architecture, dynamic interfaces, styling, and modern web application frameworks.",
+    description: "Explored frontend architecture, dynamic interfaces, styling and modern web application frameworks.",
     icon: <Globe className="text-orchid" size={24} />
   },
   {
     phase: "03",
     title: "Data Analytics",
-    description: "Learned statistics, scripting with Python, data modeling, and mathematical libraries like Pandas and NumPy.",
+    description: "Learned statistics, scripting with Python, data modeling and mathematical libraries like Pandas and NumPy.",
     icon: <Database className="text-orchid" size={24} />
   },
   {
@@ -32,13 +32,13 @@ const journeyPhases = [
   {
     phase: "05",
     title: "AI Systems & RAG",
-    description: "Delved into prompt engineering, LLM API orchestrations, context grounding, and vector search strategies.",
+    description: "Delved into prompt engineering, LLM API orchestrations, context grounding and vector search strategies.",
     icon: <Cpu className="text-orchid" size={24} />
   },
   {
     phase: "06",
     title: "Building Connected Experiences",
-    description: "Connecting AI nodes, robust databases, user interfaces, and business strategy to build holistic products.",
+    description: "Connecting AI nodes, robust databases, user interfaces and business strategy to build holistic products.",
     icon: <Link2 className="text-orchid" size={24} />
   }
 ];
@@ -105,16 +105,16 @@ const About = () => {
               My journey began with Java and web development fundamentals.
             </p>
             <p>
-              Curiosity pushed me toward Python, data analytics, dashboards, and business intelligence.
+              Curiosity pushed me toward Python, data analytics, dashboards and business intelligence.
             </p>
             <p>
-              From there I explored AI systems, prompt engineering, retrieval augmented generation (RAG), APIs, and automation.
+              From there I explored AI systems, prompt engineering, retrieval augmented generation (RAG), APIs and automation.
             </p>
             <p>
-              Alongside technology, I have also participated in business strategy, branding, management, and creative challenges that strengthened my analytical and communication skills.
+              Alongside technology, I have also participated in business strategy, branding, management and creative challenges that strengthened my analytical and communication skills.
             </p>
             <p className="text-[#f4eff5] font-medium italic mt-12 text-2xl md:text-3xl border-l-4 border-orchid/30 pl-6">
-              "Today I enjoy building projects that combine technology, data, creativity, and problem solving."
+              "Today I enjoy building projects that combine technology, data, creativity and problem solving."
             </p>
           </div>
         </motion.div>

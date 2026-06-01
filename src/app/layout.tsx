@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "Astha Singh | Software Engineer, AI Builder & Data Analyst",
-  description: "Portfolio of Astha Singh specializing in Software Engineering, AI Applications, Data Analytics, and Business Strategy.",
+  description: "Portfolio of Astha Singh specializing in Software Engineering, AI Applications, Data Analytics and Business Strategy.",
 };
 
 export default function RootLayout({

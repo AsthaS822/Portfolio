@@ -27,7 +27,7 @@ const Words = () => {
               Published Works
             </h2>
             <p className="text-[#d7bfdc] text-base max-w-sm font-light leading-relaxed font-serif italic">
-              Explorations in storytelling, creative writing, and expression beyond the keyboard.
+              Explorations in storytelling, creative writing and expression beyond the keyboard.
             </p>
           </div>
 

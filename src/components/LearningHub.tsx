@@ -46,7 +46,7 @@ const LearningHub = () => {
             </div>
             
             <p className="text-[#d7bfdc] text-lg md:text-xl leading-relaxed font-light max-w-2xl">
-              An evolving personal knowledge repository documenting concepts from AI, Python, Data Analytics, SQL, Power BI, APIs, and Software Engineering.
+              An evolving personal knowledge repository documenting concepts from AI, Python, Data Analytics, SQL, Power BI, APIs and Software Engineering.
             </p>
 
             <a 
