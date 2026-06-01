@@ -10,6 +10,9 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Think", href: "#think" },
+  { name: "Learn", href: "#learn" },
+  { name: "Words", href: "#words" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -19,7 +22,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,35 +31,43 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-gray-800 py-4" : "bg-transparent py-6"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+        scrolled 
+          ? "bg-[#06020c]/70 backdrop-blur-xl border-b border-orchid/10 py-4" 
+          : "bg-transparent py-6"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">
-          Astha.dev
+      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+        <Link href="/" className="group flex items-center gap-1.5">
+          <span className="font-serif italic text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-orchid via-mauve to-magenta">
+            Astha
+          </span>
+          <span className="font-sans text-xs tracking-[0.2em] font-medium text-muted-foreground uppercase group-hover:text-orchid transition-colors duration-300">
+            .dev
+          </span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground hover:text-orchid transition-colors duration-300 relative py-1 group/item"
             >
               {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-orchid transition-all duration-300 group-hover/item:w-full" />
             </Link>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-muted-foreground hover:text-orchid transition-colors duration-300"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -67,7 +78,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 overflow-hidden"
+            className="md:hidden bg-[#0d0518]/95 backdrop-blur-2xl border-b border-orchid/15 overflow-hidden"
           >
             <div className="flex flex-col gap-4 p-6">
               {navLinks.map((link) => (
@@ -75,7 +86,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-gray-300 hover:text-white transition-colors"
+                  className="text-sm font-semibold tracking-widest uppercase text-muted-foreground hover:text-orchid transition-colors duration-300"
                 >
                   {link.name}
                 </Link>

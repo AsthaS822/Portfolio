@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
-  title: "Astha Singh | Full-Stack Developer",
-  description: "Portfolio of Astha Singh, a Full-Stack Developer specializing in Next.js, Supabase, and AI.",
+  title: "Astha Singh | Software Engineer, AI Builder & Data Analyst",
+  description: "Portfolio of Astha Singh specializing in Software Engineering, AI Applications, Data Analytics, and Business Strategy.",
 };
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased bg-[#06020c] text-white selection:bg-purple-900/30 selection:text-white`}
       >
         {children}
       </body>

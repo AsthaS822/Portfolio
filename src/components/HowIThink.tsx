@@ -1,86 +1,100 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Wrench, Puzzle, Layers, Search, Database, Cpu } from "lucide-react";
+import { Sparkles, Hammer, Cpu, LayoutGrid, Eye } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const principles = [
+  {
+    icon: <Hammer className="text-[#f4eff5]" size={28} />,
+    title: "I learn by building.",
+    desc: "Active creation and hands-on experimentation are the fastest paths to mastering complex technical architectures."
+  },
+  {
+    icon: <LayoutGrid className="text-[#f4eff5]" size={28} />,
+    title: "I break complex problems into smaller systems.",
+    desc: "Isolating variables, decomposing features, and modeling robust interactions makes large challenges elegant and manageable."
+  },
+  {
+    icon: <Cpu className="text-[#f4eff5]" size={28} />,
+    title: "I connect AI, data, design, and technology.",
+    desc: "Intelligent systems are most powerful when data engineering flows seamlessly into beautiful user experiences."
+  },
+  {
+    icon: <Sparkles className="text-[#f4eff5]" size={28} />,
+    title: "I focus on practical solutions over theoretical perfection.",
+    desc: "I prioritize shipping reliable, maintainable code that solves immediate, tangible problems under real constraints."
+  },
+  {
+    icon: <Eye className="text-[#f4eff5]" size={28} />,
+    title: "I believe curiosity is a skill.",
+    desc: "Continuous questioning and self-directed research keep me adaptive in a rapidly shifting technology ecosystem."
+  }
+];
 
 const HowIThink = () => {
-  const approaches = [
-    {
-      icon: <Wrench className="text-cyan-400" size={28} />,
-      title: "I learn by building",
-      description: "I understand things better when I actually build them",
-    },
-    {
-      icon: <Puzzle className="text-cyan-400" size={28} />,
-      title: "I break problems into small parts",
-      description: "I try to simplify things instead of overcomplicating",
-    },
-    {
-      icon: <Layers className="text-cyan-400" size={28} />,
-      title: "I connect web AI and data",
-      description: "I like building things that actually work together",
-    },
-  ];
-
-  const focusAreas = [
-    {
-      icon: <Search className="text-white/60" size={24} />,
-      title: "Building useful applications",
-    },
-    {
-      icon: <Database className="text-white/60" size={24} />,
-      title: "Understanding real-world data",
-    },
-    {
-      icon: <Cpu className="text-white/60" size={24} />,
-      title: "Exploring AI + analytics systems",
-    },
-  ];
-
   return (
-    <section id="how-i-think" className="py-24 px-4 relative bg-white/[0.02] border-y border-white/5">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 uppercase mb-12 text-center drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
-            02. HOW I THINK
-          </h2>
+    <section id="how-i-think" className="py-40 px-6 relative overflow-hidden bg-[#2b1228]">
+      {/* Magazine Cover Background Atmosphere */}
+      <div className="absolute top-0 right-0 w-[50vw] h-[100vh] bg-[#4a1020]/20 blur-[150px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[40vw] h-[80vh] bg-[#5b2148]/20 blur-[150px] -z-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-              <h3 className="text-2xl font-medium text-white mb-8">My Approach</h3>
-              <div className="flex flex-col gap-8">
-                {approaches.map((item, i) => (
-                  <div key={i} className="flex gap-6 items-start">
-                    <div className="mt-1 bg-white/5 p-3 rounded-2xl border border-white/10 shadow-lg">{item.icon}</div>
-                    <div>
-                      <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
-                      <p className="text-white/80 leading-relaxed text-lg">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-20">
+          
+          {/* Editorial Left Side Sticky Header */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/3 lg:sticky lg:top-32 h-fit"
+          >
+            <div className="space-y-6">
+              <span className="font-mono text-xs tracking-[0.4em] text-[#d49db8] uppercase font-semibold block border-l-2 border-[#d49db8] pl-4">
+                02 / THINK
+              </span>
+              <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
+                How <br/> I Think
+              </h2>
+              <div className="w-24 h-1 bg-[#d49db8]/30 mt-8" />
             </div>
+          </motion.div>
 
-            <div>
-              <h3 className="text-2xl font-medium text-white mb-8">What I Focus On</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {focusAreas.map((item, i) => (
-                  <div key={i} className="glass p-6 rounded-2xl flex items-center gap-6 hover:bg-white/10 transition-colors border border-white/10 shadow-lg">
-                    <div className="text-cyan-400">
-                      {item.icon}
-                    </div>
-                    <h4 className="text-xl font-bold text-white">{item.title}</h4>
+          {/* Right Side Stacked Editorial Articles */}
+          <div className="lg:w-2/3 space-y-32">
+            {principles.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative group"
+              >
+                {/* Massive overlapping number */}
+                <div className="absolute -top-16 -left-8 md:-left-16 text-[10rem] md:text-[14rem] font-serif font-black text-white/[0.03] select-none pointer-events-none group-hover:text-[#d49db8]/[0.08] transition-colors duration-700 leading-none tracking-tighter z-0">
+                  {idx + 1}
+                </div>
+
+                <div className="relative z-10 pl-4 md:pl-12 border-l border-white/10 group-hover:border-[#d49db8]/50 transition-colors duration-500 py-4">
+                  <div className="w-16 h-16 rounded-full bg-[#4a1020] flex items-center justify-center mb-8 shadow-xl">
+                    {item.icon}
                   </div>
-                ))}
-              </div>
-            </div>
+                  
+                  <h3 className="text-3xl md:text-5xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-6">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-[#d7bfdc] text-lg md:text-2xl font-light leading-relaxed max-w-2xl font-serif">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

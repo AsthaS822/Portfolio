@@ -1,165 +1,272 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, ExternalLink, BarChart3, Code2, FileSearch } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Github, ExternalLink, Award, FileSearch, Code2, BarChart3, Bot } from "lucide-react";
+import { useRef } from "react";
 
-const featuredProject = {
-  title: "Retail Sales Analysis Dashboard",
-  description: "A comprehensive Business Intelligence dashboard built to analyze global retail performance across countries, cities, regions, and product categories.",
-  insights: ["Sales trends", "Profit distribution", "Regional performance", "Yearly growth", "Category-wise analysis", "India vs Global sales comparison"],
-  pythonAnalysis: ["Data cleaning and preprocessing", "Profit margin calculation", "Trend analysis", "Sales visualization", "Regional insights"],
-  tools: ["Power BI", "Python (Pandas, NumPy, Matplotlib)"],
-  skills: ["Data Analysis", "Data Visualization", "Business Intelligence", "Dashboard Design"],
-  github: "https://github.com/AsthaS822/Retail-_Sales_Report_PROJECT",
-  icon: <BarChart3 className="text-white w-12 h-12 mb-6" />
-};
-
-const otherProjects = [
+const projects = [
   {
-    title: "GitGrade",
-    description: "AI tool that analyzes GitHub repositories and gives insights like code quality, summary and improvement suggestions",
-    tech: ["JavaScript", "GitHub API", "OpenRouter AI"],
-    github: "https://github.com/AsthaS822/GitGrade",
-    live: "https://gitgrade-project-h2kc.vercel.app/",
-    icon: <Code2 className="text-white w-8 h-8 mb-4" />
+    id: "retail-sales",
+    title: "Retail Sales Analysis Dashboard",
+    category: "DATA SYSTEMS // BUSINESS INTELLIGENCE",
+    description: "A comprehensive Business Intelligence dashboard built to analyze global retail performance across countries, cities, regions, and product categories.",
+    technologies: ["Power BI", "Python (Pandas, NumPy)", "Matplotlib", "Data Visualization", "Business Intelligence", "Dashboard Design"],
+    demoLink: null,
+    certLink: null,
+    githubLink: "https://github.com/AsthaS822/Retail-_Sales_Report_PROJECT",
+    accentColor: "#6b2335",
+    icon: <BarChart3 className="text-[#d49db8]" size={32} />,
   },
   {
+    id: "gitgrade",
+    title: "GitGrade",
+    category: "AI APPLICATIONS // CONTEXT EVALUATION",
+    description: "AI tool that analyzes GitHub repositories and gives insights like code quality, summary and improvement suggestions.",
+    technologies: ["JavaScript", "GitHub API", "OpenRouter AI", "API Integrations", "Developer Tools"],
+    demoLink: "https://gitgrade-project-h2kc.vercel.app/",
+    certLink: null,
+    githubLink: "https://github.com/AsthaS822/GitGrade",
+    accentColor: "#5b2148",
+    icon: <Code2 className="text-[#d49db8]" size={32} />,
+  },
+  {
+    id: "rag-assistant",
+    title: "Generative AI RAG Assistant",
+    category: "AI ENGINEERING // LEARNING PROGRAM",
+    description: "Built and tested a Retrieval Augmented Generation (RAG) chatbot as part of a Generative AI learning program. The workflow provided a pre-configured framework where I selected the knowledge source, configured the chatbot around a chosen topic, experimented with prompts, and evaluated how retrieval-based responses were generated.",
+    technologies: ["Retrieval Augmented Generation (RAG)", "Prompt Engineering", "Knowledge Retrieval", "Context Grounding", "Generative AI Concepts"],
+    demoLink: "https://www.guvi.in/rag/d159de3d-2ec7-48aa-af2a-7cd76c786fef/",
+    certLink: "https://www.guvi.in/share-certificate/44uBb1M575DN271964",
+    githubLink: null,
+    accentColor: "#4a1020",
+    icon: <Bot className="text-[#d49db8]" size={32} />,
+  },
+  {
+    id: "resume-analyzer",
     title: "AI Resume Analyzer",
-    description: "A simple ATS style resume checker that reads PDF resumes and gives AI based feedback",
-    tech: ["JavaScript", "Puter.js"],
-    github: "https://github.com/AsthaS822",
-    live: null,
-    icon: <FileSearch className="text-white w-8 h-8 mb-4" />
-  }
+    category: "WEB DEVELOPMENT // AUTOMATED SCREENING",
+    description: "A simple ATS style resume checker that reads PDF resumes and gives AI based feedback.",
+    technologies: ["JavaScript", "Puter.js", "File API", "ATS Algorithms", "UX Design"],
+    demoLink: null,
+    certLink: null,
+    githubLink: "https://github.com/AsthaS822",
+    accentColor: "#24112d",
+    icon: <FileSearch className="text-[#d49db8]" size={32} />,
+  },
 ];
 
+const RetailVisual = () => (
+  <div className="w-full h-full min-h-[400px] rounded-[2rem] relative overflow-hidden group bg-[#120716] border border-white/10 group-hover:border-white/20 transition-colors duration-500">
+    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/5" />
+    
+    {/* Abstract background glows */}
+    <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] rounded-full blur-[60px] opacity-30 bg-[#6b2335]" />
+    <div className="absolute bottom-[10%] left-[10%] w-[35%] h-[35%] rounded-full blur-[50px] opacity-20 bg-[#d49db8]" />
+    
+    {/* Abstract Data Viz Elements - NO TEXT OR METRICS */}
+    <div className="absolute inset-0 p-8 flex flex-col justify-end">
+      {/* Floating Bar Charts */}
+      <div className="flex items-end gap-4 h-40 mb-8 opacity-40 group-hover:opacity-60 transition-opacity duration-700 px-4">
+        <div className="w-12 h-1/3 bg-gradient-to-t from-[#6b2335] to-[#d49db8] rounded-t-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700" />
+        <div className="w-12 h-2/3 bg-gradient-to-t from-[#6b2335] to-[#d49db8] rounded-t-sm transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-75" />
+        <div className="w-12 h-1/2 bg-gradient-to-t from-[#6b2335] to-[#d49db8] rounded-t-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 delay-100" />
+        <div className="w-12 h-full bg-gradient-to-t from-[#6b2335] to-[#d49db8] rounded-t-sm transform translate-y-12 group-hover:translate-y-0 transition-transform duration-700 delay-150" />
+        <div className="w-12 h-4/5 bg-gradient-to-t from-[#6b2335] to-[#d49db8] rounded-t-sm transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 delay-200" />
+      </div>
+
+      {/* Floating Widgets / Cards */}
+      <div className="absolute top-10 right-10 w-40 h-24 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md opacity-50 transform rotate-[-5deg] group-hover:rotate-0 transition-transform duration-700 flex flex-col justify-center gap-3 p-4">
+         <div className="w-full h-1 bg-white/20 rounded-full" />
+         <div className="w-1/2 h-1 bg-white/10 rounded-full" />
+      </div>
+      <div className="absolute top-40 right-24 w-48 h-32 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md opacity-40 transform rotate-[3deg] group-hover:rotate-0 transition-transform duration-700 flex flex-col justify-center gap-4 p-5">
+         <div className="w-full h-1 bg-white/10 rounded-full" />
+         <div className="w-3/4 h-1 bg-white/10 rounded-full" />
+         <div className="w-2/3 h-1 bg-white/10 rounded-full" />
+      </div>
+      
+      {/* Line chart abstraction */}
+      <svg className="absolute top-[40%] left-0 w-full h-32 opacity-30" viewBox="0 0 100 50" preserveAspectRatio="none">
+        <path d="M0,40 Q20,20 40,30 T80,10 T100,20" fill="none" stroke="#d49db8" strokeWidth="1" />
+        <path d="M0,45 Q20,35 40,40 T80,20 T100,25" fill="none" stroke="#6b2335" strokeWidth="0.5" />
+      </svg>
+    </div>
+
+    {/* Center icon */}
+    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+        <BarChart3 className="text-[#d49db8]" size={32} />
+      </div>
+    </div>
+  </div>
+);
+
+/* Abstract visual block — no fake content, just pure shapes & gradients */
+const AbstractVisual = ({ accentColor, icon, index }: { accentColor: string; icon: React.ReactNode; index: number }) => (
+  <div className="w-full h-full min-h-[320px] rounded-[2rem] relative overflow-hidden group">
+    {/* Layered gradient background */}
+    <div className="absolute inset-0 bg-[#120716]" />
+    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/5" />
+    
+    {/* Abstract floating shapes */}
+    <div 
+      className="absolute top-[15%] left-[10%] w-[45%] h-[45%] rounded-full blur-[60px] opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+      style={{ background: accentColor }}
+    />
+    <div 
+      className="absolute bottom-[10%] right-[15%] w-[35%] h-[35%] rounded-full blur-[50px] opacity-25 group-hover:opacity-45 transition-opacity duration-700"
+      style={{ background: accentColor }}
+    />
+    <div 
+      className="absolute top-[50%] left-[40%] w-[20%] h-[20%] rounded-full blur-[30px] opacity-20"
+      style={{ background: "#d49db8" }}
+    />
+
+    {/* Geometric accent lines */}
+    <div className="absolute top-8 left-8 w-16 h-px bg-white/10" />
+    <div className="absolute top-8 left-8 w-px h-16 bg-white/10" />
+    <div className="absolute bottom-8 right-8 w-16 h-px bg-white/10" />
+    <div className="absolute bottom-8 right-8 w-px h-16 bg-white/10" />
+    
+    {/* Center icon */}
+    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+        {icon}
+      </div>
+    </div>
+
+    {/* Subtle border */}
+    <div className="absolute inset-0 rounded-[2rem] border border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+  </div>
+);
+
 const Projects = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
   return (
-    <section id="projects" className="py-24 px-4 relative bg-white/[0.01]">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <section id="projects" ref={containerRef} className="py-40 relative bg-[#1c0c1f] overflow-hidden">
+      {/* Rose Purple & Mulberry Atmosphere */}
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vh] bg-[#6b2335]/20 blur-[150px] -z-10" />
+      <div className="absolute bottom-[20%] left-[-10%] w-[60vw] h-[60vh] bg-[#4a1020]/30 blur-[180px] -z-10" />
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+        {/* Header section */}
+        <div className="space-y-6 text-center lg:text-left mb-24">
+          <span className="font-mono text-xs tracking-[0.4em] text-[#d49db8] uppercase font-semibold">
+            04 / BUILD
+          </span>
+          <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter">
+            Selected Work
+          </h2>
+        </div>
+
+        {/* 1. Flagship Cinematic Project (Retail Sales) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center mb-32"
         >
-          <h2 className="text-2xl md:text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 uppercase mb-12 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
-            04. Selected Work
-          </h2>
-
-          {/* Featured Project */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
-              Featured BI System
-            </h3>
-            
-            <div className="glass-card rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden group shadow-lg">
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] -z-10 group-hover:bg-purple-500/20 transition-colors duration-700" />
-              
-              <div className="relative z-10 flex flex-col lg:flex-row gap-12">
-                <div className="flex-1">
-                  {featuredProject.icon}
-                  <h4 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
-                    {featuredProject.title}
-                  </h4>
-                  <p className="text-white/90 text-xl leading-relaxed mb-8 font-medium">
-                    {featuredProject.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {featuredProject.tools.map((tool, i) => (
-                      <span key={i} className="px-4 py-1.5 text-sm font-semibold rounded-full bg-white/10 text-white border border-white/20 shadow-sm">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a 
-                    href={featuredProject.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors shadow-md"
-                  >
-                    <Github size={18} />
-                    View Repository
-                  </a>
-                </div>
-
-                <div className="flex-1 space-y-8">
-                  <div>
-                    <h5 className="text-white font-bold text-lg mb-4 border-b border-white/20 pb-2">Key Insights Provided</h5>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/90 text-base">
-                      {featuredProject.insights.map((item, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="text-white font-bold text-lg mb-4 border-b border-white/20 pb-2">Python Data Pipeline</h5>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/90 text-base">
-                      {featuredProject.pythonAnalysis.map((item, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-purple-400" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Abstract Data Visual */}
+          <div className="w-full lg:w-1/2 shrink-0 h-[400px]">
+            <RetailVisual />
           </div>
 
-          {/* Other Projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {otherProjects.map((project, i) => (
-              <div key={i} className="glass p-8 rounded-3xl border border-white/10 hover:border-white/30 transition-colors group flex flex-col h-full shadow-lg bg-black/40 hover:bg-black/60">
-                {project.icon}
-                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
-                  {project.title}
-                </h4>
-                <p className="text-white/90 mb-8 text-lg leading-relaxed flex-grow font-medium">
-                  {project.description}
-                </p>
+          <div className="w-full lg:w-1/2 space-y-8">
+            <span className="font-mono text-[10px] tracking-[0.25em] text-[#d49db8] font-bold uppercase block border-b border-white/10 pb-4">
+              {projects[0].category}
+            </span>
+            
+            <h3 className="text-4xl md:text-6xl font-serif font-bold text-white tracking-tighter leading-[1.1]">
+              {projects[0].title}
+            </h3>
+
+            <p className="text-[#c2b6cb] text-lg font-light leading-relaxed">
+              {projects[0].description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-4">
+              {projects[0].technologies.map((t, tIdx) => (
+                <span key={tIdx} className="text-[10px] font-mono px-3 py-1 rounded bg-white/5 border border-white/10 text-[#c2b6cb]">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-8">
+              {projects[0].githubLink && (
+                <a href={projects[0].githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#d49db8] text-black text-sm font-bold hover:bg-white transition-all">
+                  <Github size={16} /> View Repository
+                </a>
+              )}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Remaining Projects — Editorial Layouts, Shorter Footprint */}
+        <div className="space-y-32">
+          {projects.slice(1).map((proj, idx) => (
+            <motion.div
+              key={proj.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-20 items-center`}
+            >
+              {/* Abstract Visual */}
+              <div className="w-full lg:w-5/12 shrink-0">
+                <AbstractVisual accentColor={proj.accentColor} icon={proj.icon} index={idx + 1} />
+              </div>
+
+              {/* Text Layout */}
+              <div className="w-full lg:w-7/12 space-y-6">
+                <span className="font-mono text-[10px] tracking-[0.25em] text-[#d49db8] font-bold uppercase block border-b border-white/10 pb-4">
+                  {proj.category}
+                </span>
                 
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((t, idx) => (
-                    <span key={idx} className="px-4 py-1.5 text-sm font-semibold rounded-md bg-white/10 text-white border border-white/20 shadow-sm">
+                <h3 className="text-4xl md:text-5xl font-serif font-bold text-white tracking-tighter">
+                  {proj.title}
+                </h3>
+
+                <p className="text-[#c2b6cb] text-base font-light leading-relaxed">
+                  {proj.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {proj.technologies.map((t, tIdx) => (
+                    <span key={tIdx} className="text-[10px] font-mono px-3 py-1 rounded bg-white/5 border border-white/10 text-[#c2b6cb]">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3 justify-end border-t border-white/10 pt-6 mt-auto">
-                  {project.live && (
-                    <a 
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-                      title="View Live Site"
-                    >
-                      <ExternalLink size={20} />
+                <div className="flex flex-wrap gap-4 pt-8">
+                  {proj.demoLink && (
+                    <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d49db8] text-black text-xs font-bold hover:bg-white transition-all">
+                      <ExternalLink size={14} /> View Demo
                     </a>
                   )}
-                  <a 
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-                    title="View Source Code"
-                  >
-                    <Github size={20} />
-                  </a>
+                  {proj.certLink && (
+                    <a href={proj.certLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white text-xs font-medium hover:bg-white/10 transition-all">
+                      <Award size={14} /> View Certificate
+                    </a>
+                  )}
+                  {proj.githubLink && (
+                    <a href={proj.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white text-xs font-medium hover:bg-white/10 transition-all">
+                      <Github size={14} /> Repository
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
